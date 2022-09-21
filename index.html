@@ -17,23 +17,45 @@
     <div class="container">
       <div class="weather-app">
         <div class="weather">
-          <div class="row">
-            <div class="col-6">
-              <h1>Lagos</h1>
-              <ul>
-                <li>Wednesday 02:29, partly cloudy</li>
-                <li>Humidity: 72%, Wind: 14 km/h</li>
-              </ul>
-            </div>
-            <div class="col-6">
-              <div class="temperature-container d-flex justify-content-end">
-                <img
-                  class="icon"
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="partly_cloudy"
+          <form id="search-form" class="mb-5">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
                 />
-                <div>
-                  <span class="temp">29</span><span class="units">℃ | ℉</span>
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="weatherInfo">
+            <div class="row">
+              <div class="col-6">
+                <h1>Lagos</h1>
+                <ul>
+                  <li>Wednesday 02:29, partly cloudy</li>
+                  <li>Humidity: 72%, Wind: 14 km/h</li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <div class="temperature-container d-flex justify-content-end">
+                  <img
+                    class="icon"
+                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                    alt="partly_cloudy"
+                  />
+                  <div>
+                    <span class="temp">29</span><span class="units">℃ | ℉</span>
+                  </div>
                 </div>
               </div>
             </div>
