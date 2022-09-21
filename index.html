@@ -15,34 +15,39 @@
   </head>
   <body>
     <div class="container">
-      <h1>Lagos</h1>
-      <ul>
-        <li>Wednesday 02:29</li>
-        <li>partly cloudy</li>
-      </ul>
-      <div class="row">
-        <div class="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="partly_cloudy"
-          />
-          29°C
+      <div class="weather-app">
+        <div class="weather">
+          <div class="row">
+            <div class="col-6">
+              <h1>Lagos</h1>
+              <ul>
+                <li>Wednesday 02:29, partly cloudy</li>
+                <li>Humidity: 72%, Wind: 14 km/h</li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <div class="temperature-container d-flex justify-content-end">
+                <img
+                  class="icon"
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="partly_cloudy"
+                />
+                <div>
+                  <span class="temp">29</span><span class="units">℃ | ℉</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6">
-          <ul>
-            <li>Humidity: 72%</li>
-            <li>Wind: 14 km/h</li>
-          </ul>
-        </div>
-      </div>
-      <small>
-        <a
-          href="https://github.com/uniqueRaffy/My-Vanilla-weatherApp"
-          target="_blank"
-          >Open-source code</a
+        <small>
+          <a
+            href="https://github.com/uniqueRaffy/My-Vanilla-weatherApp"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Rafiat Salewa</small
         >
-        by Rafiat Salewa</small
-      >
+      </div>
     </div>
     <script src="src/app.js"></script>
   </body>
