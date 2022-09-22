@@ -11,6 +11,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -23,7 +24,7 @@
                 <input
                   type="search"
                   placeholder="Type a city.."
-                  class="form-control"
+                  class="form-control search-city"
                   id="city-input"
                   autocomplete="off"
                 />
@@ -40,10 +41,16 @@
           <div class="weatherInfo">
             <div class="row">
               <div class="col-6">
-                <h1>Lagos</h1>
+                <h1 id="city"></h1>
                 <ul>
-                  <li>Wednesday 02:29, partly cloudy</li>
-                  <li>Humidity: 72%, Wind: 14 km/h</li>
+                  <li>
+                    <span id="time">Wednesday 02:29</span>,
+                    <span id="description"></span>
+                  </li>
+                  <li>
+                    Humidity: <strong id="humidity"></strong>%, Wind:
+                    <strong id="wind"></strong> km/h
+                  </li>
                 </ul>
               </div>
               <div class="col-6">
@@ -54,7 +61,8 @@
                     alt="partly_cloudy"
                   />
                   <div>
-                    <span class="temp">29</span><span class="units">℃ | ℉</span>
+                    <span class="temp" id="temperature"></span
+                    ><span class="units">℃ | ℉</span>
                   </div>
                 </div>
               </div>
