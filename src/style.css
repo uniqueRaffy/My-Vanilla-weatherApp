@@ -21,6 +21,9 @@ li {
   list-style: none;
   margin-bottom: 5px;
 }
+strong {
+  color: #9cdab3;
+}
 .weather-app {
   max-width: 700px;
   margin: 30px auto;

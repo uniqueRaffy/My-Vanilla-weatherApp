@@ -27,11 +27,14 @@ function showTemp(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let description = document.querySelector("#description");
+  let iconElement = document.querySelector("#weather-icon");
+
   currentCity.innerHTML = response.data.name;
   tempElement.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = response.data.wind.speed;
   description.innerHTML = response.data.weather[0].description;
+  iconElement.setAttribute("src");
 }
 function search(city) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
