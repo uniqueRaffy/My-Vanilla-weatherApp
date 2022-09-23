@@ -1,24 +1,26 @@
-let currentTime = new Date();
-let time = document.querySelector("#time");
-let Days = [
-  "Sunday",
-  "Monday",
-  "Tueday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = Days[currentTime.getDay()];
-let hours = currentTime.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+function formatDate(timestamp) {
+  let currentTime = new Date(timestamp);
+  let time = document.querySelector("#time");
+  let Days = [
+    "Sunday",
+    "Monday",
+    "Tueday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = Days[currentTime.getDay()];
+  let hours = currentTime.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = currentTime.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  time.innerHTML = `${day} ${hours}:${minutes}`;
 }
-let minutes = currentTime.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-time.innerHTML = `${day} ${hours}:${minutes}`;
 
 function showTemp(response) {
   console.log(response.data);
@@ -28,11 +30,15 @@ function showTemp(response) {
   let windElement = document.querySelector("#wind");
   let description = document.querySelector("#description");
   let iconElement = document.querySelector("#weather-icon");
+  let timeElement = document.querySelector("#time");
 
+  celciusTemperature = Math.round(response.data.main.temp);
+
+  timeElement = formatDate(response.data.dt * 1000);
   currentCity.innerHTML = response.data.name;
   tempElement.innerHTML = Math.round(response.data.main.temp);
-  humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = response.data.wind.speed;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
   description.innerHTML = response.data.weather[0].description;
   iconElement.setAttribute(
     "src",
@@ -50,6 +56,31 @@ function searchCity(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelcius(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", showCelcius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
