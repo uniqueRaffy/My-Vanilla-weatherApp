@@ -22,6 +22,33 @@ function formatDate(timestamp) {
   time.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2">
+                <div class="forecast-date">${day}</div>
+                <img
+                  src="http://openweathermap.org/img/wn/04d@2x.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="forecast-temp">
+                  <span class="max-temp">18°</span>
+                  <span class="min-temp">12°</span>
+                </div>
+              </div>
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemp(response) {
   console.log(response.data);
   let currentCity = document.querySelector("#city");
@@ -86,3 +113,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
 search("Abuja");
+showForecast();
