@@ -82,3 +82,18 @@ strong {
   color: #212121;
   text-decoration: none;
 }
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+}
+.forecast-date {
+  font-size: 16px;
+  color: #6e6b6b;
+}
+.forecast-temp {
+  font-size: 13px;
+}
+.min-temp {
+  color: #6e6b6b;
+}
