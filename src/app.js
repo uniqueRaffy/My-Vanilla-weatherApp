@@ -85,7 +85,7 @@ function showTemp(response) {
   currentCity.innerHTML = response.data.name;
   tempElement.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
-  windElement.innerHTML = `${response.data.wind.speed}km/h`;
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
   description.innerHTML = response.data.weather[0].description;
   iconElement.setAttribute(
     "src",
